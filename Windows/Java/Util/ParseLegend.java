@@ -29,6 +29,23 @@ import ruppy3e1.merl.View.DownloadActivity;
  *  NOTE: LEGEND WEBSITE REMOVE POST AFTER THE MOVIES IS PLAYING SO AT NIGHT METHOD WILL RESULT IN 0 MOVIES... DON'T PANIC
  *
  *******************************/
+
+
+
+
+
+
+
+/*
+* HOW TO USE THIS METHOD
+* FIRST NEED TO CREATE A VARIABLE DOCUMENT AS FIELD
+* ex. Document doc;
+* THEN CONNECT THE DOCUMENT TO URL
+* ex. doc = Jsoup.connect("legend.com.kh/ksajlkfasjfkdj").get();
+* Depending on platform may need to use Async and Surround with try catch
+* In any classes just create a new variable matching datatype with method datatype
+* Pass Document as parameter
+*/
 public class ParseLegend {
 
 
@@ -73,7 +90,7 @@ public class ParseLegend {
 
             Elements img = imgSpan.select("img");
 
-        
+
             for (Element i : img){
 
                 ImgLinks.add(i.attr("src"));
