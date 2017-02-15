@@ -39,6 +39,8 @@ public class DownloadActivity extends AppCompatActivity {
     private Document doc;
     private ArrayList<String> Movies;
     private ArrayList<String> Links;
+    private ArrayList<String> time;
+    private String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +75,7 @@ public class DownloadActivity extends AppCompatActivity {
 
             Movies = ParseLegend.getMovies(doc);
             Links = ParseLegend.getImgLinks(doc);
-
+            id = ParseLegend.getLegendID(doc);
 
 
             mTitle = (TextView) findViewById(R.id.title);
@@ -88,6 +90,16 @@ public class DownloadActivity extends AppCompatActivity {
             }
             for (String l : Links){
                 Log.i(TAG, "onCreate: Image Links: " + l);
+            }
+
+            if (Movies.isEmpty() || Links.isEmpty()){
+                if (Movies.isEmpty()){
+                    Log.i(TAG, "onPostExecute: movies is empty");
+
+                }
+                 if (Links.isEmpty()){
+                    Log.i(TAG, "onPostExecute: links is empty");
+                }
             }
 
             Log.i(TAG, "onCreate: title text = " + mTitle.getText());

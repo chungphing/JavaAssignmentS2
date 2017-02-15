@@ -29,6 +29,22 @@ import ruppy3e1.merl.View.DownloadActivity;
  *  NOTE: LEGEND WEBSITE REMOVE POST AFTER THE MOVIES IS PLAYING SO AT NIGHT METHOD WILL RESULT IN 0 MOVIES... DON'T PANIC
  *
  *******************************/
+
+
+
+
+
+/*
+* HOW TO USE THIS METHOD
+* FIRST NEED TO CREATE A VARIABLE DOCUMENT AS FIELD
+* ex. Document doc;
+* THEN CONNECT THE DOCUMENT TO URL
+* ex. doc = Jsoup.connect("legend.com.kh/ksajlkfasjfkdj").get();
+* Depending on platform may need to use Async and Surround with try catch
+* In any classes just create a new variable matching datatype with method datatype
+* Pass Document as parameter
+*/
+
 public class ParseLegend {
 
 
@@ -110,7 +126,7 @@ public class ParseLegend {
         //TODO: may need to get by ID
     }
 
-    public static void getLegendID(Document doc){
+    public static String getLegendID(Document doc){
 
 
         Elements post = doc.select("div.st_container");
@@ -119,7 +135,7 @@ public class ParseLegend {
 
 
         String LegendID = stringRating.substring(stringRating.lastIndexOf('/') + 1);
-
+        return LegendID;
     }
 
 
@@ -130,6 +146,14 @@ public class ParseLegend {
         Elements runtime = post.select("div.bx-rtg > ul > li.vle-t > span");
         String stringRuntime = runtime.text();
     }
+
+
+
+
+
+
+
+
 
 
 }
