@@ -7,6 +7,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import ruppy3e1.merl.Database.MovieSQLiteHelper;
 import ruppy3e1.merl.Model.Movie;
+import ruppy3e1.merl.Model.MovieAltID;
+import ruppy3e1.merl.Model.MovieDate;
+import ruppy3e1.merl.Model.MovieGenre;
+import ruppy3e1.merl.Model.MovieHall;
+import ruppy3e1.merl.Model.MovieShowTime;
 
 /**
  * Created by chunpghing
@@ -42,7 +47,38 @@ public class MovieDataSource {
 
         long movieID = database.insert(MovieSQLiteHelper.MOVIES_TABLE, null, movieValues);
 
-        //for (Movie)
+        for (MovieAltID movieAltID : movie.getmMovieAltID()){
+            ContentValues altIDValues = new ContentValues();
+            altIDValues.put(MovieSQLiteHelper.COLUMN_MOVIE_LEGEND_ID, movieAltID.getLegendID());
+            altIDValues.put(MovieSQLiteHelper.COLUMN_MOVIE_MAJOR_ID, movieAltID.getMajorID());
+            altIDValues.put(MovieSQLiteHelper.COLUMN_MOVIE_PLATINUM_ID, movieAltID.getPlatinumID());
+
+
+            database.insert(MovieSQLiteHelper.ALT_ID_TABLE, null, altIDValues);
+
+        }
+
+        for (MovieGenre movieGenre: movie.getmMovieGenre()){
+            ContentValues genreValue = new ContentValues();
+            genreValue.put(MovieSQLiteHelper.COLUMN_MOVIE_GENRE, "");
+
+            //// TODO: 2/17/17  have not yet implement
+        }
+
+
+        for (MovieShowTime movieShowTime : movie.getmMovieShowTime()){
+
+        }
+
+        for (MovieHall movieHall : movie.getmMovieHall()){
+
+        }
+
+
+        for (MovieDate movieDate : movie.getmMovieDate()){
+
+        }
+
 
         database.setTransactionSuccessful();
         database.endTransaction();
