@@ -44,6 +44,9 @@ public class MovieSQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_MOVIE_IMAGE_LINK = "IMAGE_LINK";
     public static final String COLUMN_MOVIE_DETAIL_URL = "DETAIL_URL";
 
+    public static final String COLUMN_MOVIE_RUNTIME = "RUNTIME";
+    public static final String COLUMN_MOVIE_RATING = "RATING";
+
     //need to create another table
     public static final String COLUMN_MOVIE_LEGEND_ID = "LEGEND_ID";
     public static final String COLUMN_MOVIE_MAJOR_ID = "MAJOR_ID";
@@ -73,7 +76,7 @@ public class MovieSQLiteHelper extends SQLiteOpenHelper {
 
     //create movie table
     private static final String  CREATE_MOVIES =
-            "CREATE TABLE " + MOVIES_TABLE + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_MOVIE_NAME + " TEXT," + COLUMN_MOVIE_ALT_NAME + " TEXT, " +
+            "CREATE TABLE " + MOVIES_TABLE + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_MOVIE_NAME + " TEXT," + COLUMN_MOVIE_ALT_NAME + " TEXT, " + COLUMN_MOVIE_RATING + " TEXT, " + COLUMN_MOVIE_RUNTIME + " TEXT, " +
                     COLUMN_MOVIE_DESCRIPTION + " TEXT, " + COLUMN_MOVIE_IS_AIRED + " INTEGER, " + COLUMN_MOVIE_IS_SHOWING + " INTEGER, " + COLUMN_MOVIE_IS_COMMING + " INTEGER, " + COLUMN_MOVIES_TRAILER_LINK + " TEXT, " + COLUMN_MOVIE_IMAGE_LINK + " TEXT, " + COLUMN_MOVIE_DETAIL_URL + " TEXT) ";
 
 

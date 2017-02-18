@@ -37,6 +37,8 @@ public class MovieDataSource {
         ContentValues movieValues = new ContentValues();
         movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_NAME, movie.getmName());
         movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_ALT_NAME, movie.getmAltName());
+        movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_RATING, movie.getmRating());
+        movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_RUNTIME, movie.getmRunTime());
         movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_DESCRIPTION, movie.getmDescription());
         movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_IS_AIRED , movie.getAired());
         movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_IS_SHOWING , movie.getShowing());
@@ -60,7 +62,9 @@ public class MovieDataSource {
 
         for (MovieGenre movieGenre: movie.getmMovieGenre()){
             ContentValues genreValue = new ContentValues();
-            genreValue.put(MovieSQLiteHelper.COLUMN_MOVIE_GENRE, "");
+            genreValue.put(MovieSQLiteHelper.COLUMN_MOVIE_GENRE, movieGenre.getmGenreCode());
+
+            database.insert(MovieSQLiteHelper.GENRES_TABLE, null , genreValue);
 
             //// TODO: 2/17/17  have not yet implement
         }
@@ -68,14 +72,34 @@ public class MovieDataSource {
 
         for (MovieShowTime movieShowTime : movie.getmMovieShowTime()){
 
+            ContentValues movieShowTimeValues = new ContentValues();
+            movieShowTimeValues.put(MovieSQLiteHelper.COLUMN_MOVIE_LEGEND_SHOWTIME, movieShowTime.getLegendShowTime());
+            movieShowTimeValues.put(MovieSQLiteHelper.COLUMN_MOVIE_MAJOR_SHOWTIME, movieShowTime.getMajorShowTime());
+            movieShowTimeValues.put(MovieSQLiteHelper.COLUMN_MOVIE_PLATINUM_SHOWTIME, movieShowTime.getPlatinumShowTime());
+
+            database.insert(MovieSQLiteHelper.MOVIE_SHOWTIMES_TABLE, null, movieShowTimeValues);
+
         }
 
         for (MovieHall movieHall : movie.getmMovieHall()){
+            ContentValues movieHallValues = new ContentValues();
+            movieHallValues.put(MovieSQLiteHelper.COLUMN_MOVIE_LEGEND_HALL, movieHall.getLegendHall());
+            movieHallValues.put(MovieSQLiteHelper.COLUMN_MOVIE_MAJOR_HALL, movieHall.getMajorHall());
+            movieHallValues.put(MovieSQLiteHelper.COLUMN_MOVIE_PLATINUM_HALL, movieHall.getPlatinumHall());
 
+
+            database.insert(MovieSQLiteHelper.MOVIE_HALLS_TABLE, null, movieHallValues);
         }
 
 
         for (MovieDate movieDate : movie.getmMovieDate()){
+            ContentValues movieDateValues = new ContentValues();
+            movieDateValues.put(MovieSQLiteHelper.COLUMN_MOVIE_LEGEND_DATE, movieDate.getLegendDate());
+            movieDateValues.put(MovieSQLiteHelper.COLUMN_MOVIE_MAJOR_DATE, movieDate.getMajorDate());
+            movieDateValues.put(MovieSQLiteHelper.COLUMN_MOVIE_PLATINUM_DATE, movieDate.getPlatinumDate());
+
+
+            database.insert(MovieSQLiteHelper.MOVIE_HALLS_TABLE, null, movieDateValues);
 
         }
 

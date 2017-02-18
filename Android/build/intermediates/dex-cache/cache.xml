@@ -3,21 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
+        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_d159b3acb4a70780c3a82553ba6ad065e53d7603/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.0_9d668f4eb61ab082cb4e16cbfd9aa94ac238b6c9/classes.dex" />
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.1.0_f79e9d3ba1a6d5e1ed540110fa4f3c88ee20d307/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -39,12 +30,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/jars/classes.jar"
+        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.1.0_6d3dc35b1eb07bcc313dc9ccd4b37b0ba01bf579/classes.dex" />
+        sha1="7cc012cc58eb9907820f80a79fb2454eaf1f3e68">
+        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_82ada4a1ef199904b4133d6ae014d7c810babbb3/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -54,159 +45,6 @@
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_d6ee5814c06438f39ecf3acada116605ab30a2cd/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
-        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.1.0_4a27569c96024266db620b4be2e99da7adcfbc6c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.0_44e3234e66dfbd95623943e20cf8c0f3d3a8d448/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_315bf0e138ac1a1069c8d7de948372aa35c22b0b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_ec813c5b1c50fb268366975bf86b4ed937602790/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.0_9e8825ea9b710467f1d9a7c52e77650df0d852e9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_6b804a07846efe4171d883748c0e934ac010e2a5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_f7053fd4138ea774551d919edd68f7a46455ba2f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="afbded93add611fd210f42d0438b76db5ce9b702">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_592368deee00aa2e94aee572b28a332f954fd9f0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2f41709f592d6c030588fa07c7681c453155ce32">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_6025feb8a3356e8d2b340a81dbb93c69adcbfa86/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.0_674019351a87a3befb689f56cc97c26441dbe2ef/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_1dfe765a1f7f9d7b720d8e81823e11ccf732fdf3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.0_345095c6a4defe3321fd87acde9b8592598cdbf7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.1.0_44b73cbd5d1b4f1740327cc3b9a08d9886b39f6c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
-        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.1.0_f79e9d3ba1a6d5e1ed540110fa4f3c88ee20d307/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.0_f5f102951dbde04eef595d713e78841ca8fa72f5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="206da8e4d370d2e2744511f26a0f0f6253add402">
-        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_82ada4a1ef199904b4133d6ae014d7c810babbb3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.0_e4903871cac4b6ab9177991b643702434d6baf0b/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -228,6 +66,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.1.0_4a27569c96024266db620b4be2e99da7adcfbc6c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -237,12 +84,30 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
+        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.0_4bc9316ae4c262df4c9cb0374f71d2966e6b0be1/classes.dex" />
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_315bf0e138ac1a1069c8d7de948372aa35c22b0b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.0_9e8825ea9b710467f1d9a7c52e77650df0d852e9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_6b804a07846efe4171d883748c0e934ac010e2a5/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -250,7 +115,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="8b7fdb9ba5204fcf0754d816b316e640330479e1">
+        sha1="33ad0434f9d46f275f0c030e232c3eea95e2c26b">
         <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_da72417a1b0711a4c1099782d0c839efb4ea1820/classes.dex" />
     </item>
     <item
@@ -273,12 +138,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/chungphing/Documents/MERL/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
+        jar="/Users/chungphing/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.1.0_95b9c62f2b92ee5f3e890af86d082e9d9eef0961/classes.dex" />
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_1dfe765a1f7f9d7b720d8e81823e11ccf732fdf3/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -287,7 +152,7 @@
         optimize="true"
         revision="25.0.2"
         sha1="33ee82e324f4b1e40167f3dc5e01234a1c5cab61">
-        <dex dex="/Users/chungphing/Documents/MERL/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsoup-1.10.2_0d7fa3c3cd323848181efadcb93d3576b3d99cda/classes.dex" />
+        <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsoup-1.10.2_0d7fa3c3cd323848181efadcb93d3576b3d99cda/classes.dex" />
     </item>
 
 </items>

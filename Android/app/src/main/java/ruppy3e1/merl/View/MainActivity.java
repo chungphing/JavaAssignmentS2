@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
-import ruppy3e1.merl.Database.MovieDataSource;
+import ruppy3e1.merl.Datasource.MovieDataSource;
 import ruppy3e1.merl.Fragments.MainFragment;
 import ruppy3e1.merl.R;
 
