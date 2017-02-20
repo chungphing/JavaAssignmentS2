@@ -61,5 +61,9 @@ public class MovieGenre implements Serializable{
 
     }
 
+    public MovieGenre(){
+
+    }
+
 
 }

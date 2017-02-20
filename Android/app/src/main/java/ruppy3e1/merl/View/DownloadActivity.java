@@ -18,6 +18,13 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import ruppy3e1.merl.Model.Movie;
+import ruppy3e1.merl.Model.MovieAltID;
+import ruppy3e1.merl.Model.MovieDate;
+import ruppy3e1.merl.Model.MovieGenre;
+import ruppy3e1.merl.Model.MovieHall;
+import ruppy3e1.merl.Model.MovieShowTime;
+import ruppy3e1.merl.Model.MovieURL;
 import ruppy3e1.merl.R;
 import ruppy3e1.merl.Util.ParseLegend;
 
@@ -28,7 +35,7 @@ public class DownloadActivity extends AppCompatActivity {
     public static final String MAJOR_CINEPLEX_URL = "http://www.majorcineplex.com.kh/cinema/showtimes";
     public static final String PLAT_CINEPLEX_URL = "http://www.platinumcineplex.com.kh/phnom-penh/";
 
-    public static final String LEGEND_SHOWTIME = "https://www.legend.com.kh/Payments/ShowTime.aspx";
+    public static final String LEGEND_URL = "https://www.legend.com.kh/Browsing/Movies/NowShowing";
     public static final String LEGEND_NOWSHOWING = "https://www.legend.com.kh/Browsing/Movies/NowShowing";
 
     private TextView mTitle;
@@ -37,75 +44,103 @@ public class DownloadActivity extends AppCompatActivity {
     private ArrayAdapter<String> arrayAdapter;
 
     private Document doc;
-    private ArrayList<String> Movies;
-    private ArrayList<String> Links;
-    private ArrayList<String> time;
-    private String id;
+
+    private int count = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download);
 
-        new RecieveData().execute();
+
+        for (int i = 0; i < 3; i++){
+
+            new RecieveDataLegend().execute();
+            count++;
+
+        }
+
 
 
 
 
     }
 
-    class RecieveData extends AsyncTask<Void, Void, Void>{
+
+    class RecieveDataLegend extends AsyncTask<Void, Void, Void>{
 
         @Override
         protected Void doInBackground(Void... params) {
 
             try {
-                doc = Jsoup.connect(LEGEND_SHOWTIME).get();
-            } catch (IOException e) {
-                e.printStackTrace();
+                doc = null;
+                if (count ==0)
+                {
+                    doc = Jsoup.connect(LEGEND_URL).get();
+                }
+                if (count == 1){
+                    doc = Jsoup.connect(MAJOR_CINEPLEX_URL).get();
+
+                }
+                if (count == 2){
+                    doc = Jsoup.connect(PLAT_CINEPLEX_URL).get();
+
+                }
+
+
+            String name = "";
+            String altName = "";
+            String description = "";
+            String rating ="";
+            String runtime = "";
+            String img = "";
+            String trailer_url = "";
+
+
+            Boolean isAired = false, isComming = false, isShowing = false;
+
+
+            ArrayList<MovieGenre> genre = new ArrayList<>();
+            ArrayList<MovieHall> movieHall = new ArrayList<>();
+            ArrayList<MovieDate> movieDate = new ArrayList<>();
+            ArrayList<MovieShowTime> movieShowTime = new ArrayList<>();
+            ArrayList<MovieAltID> movieAltID = new ArrayList<>();
+            ArrayList<MovieURL> movieURLs = new ArrayList<>();
+
+
+
+
+            if (count == 0){
+
+            }
+            if (count == 1){
+
+            }
+            if (count == 2){
+
             }
 
+
+            MovieAltID mMovieAltID = new MovieAltID();
+            MovieDate mMovieDate = new MovieDate();
+            MovieHall mMovieHall = new MovieHall();
+            MovieShowTime mMovieShowTime = new MovieShowTime();
+            MovieGenre movieGenre = new MovieGenre();
+            MovieURL movieURL = new MovieURL();
+
+
+
+
+            Movie movie = new Movie(name, altName, description, isAired, isShowing, isComming,rating , runtime , trailer_url, img, movieAltID, movieHall, genre, movieDate, movieShowTime, movieURLs);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
-
-            Movies = new ArrayList<>();
-
-
-            Movies = ParseLegend.getMovies(doc);
-            Links = ParseLegend.getImgLinks(doc);
-            id = ParseLegend.getLegendID(doc);
-
-
-            mTitle = (TextView) findViewById(R.id.title);
-
-
-            mTitle.setText(ParseLegend.getTitle(doc));
-
-
-
-            for (String m : Movies){
-                Log.i(TAG, "onCreate: Movie Title: " + m);
-            }
-            for (String l : Links){
-                Log.i(TAG, "onCreate: Image Links: " + l);
-            }
-
-            if (Movies.isEmpty() || Links.isEmpty()){
-                if (Movies.isEmpty()){
-                    Log.i(TAG, "onPostExecute: movies is empty");
-
-                }
-                 if (Links.isEmpty()){
-                    Log.i(TAG, "onPostExecute: links is empty");
-                }
-            }
-
-            Log.i(TAG, "onCreate: title text = " + mTitle.getText());
-
-
-            ParseLegend.getTimeTable(doc);
 
 
             super.onPostExecute(aVoid);

@@ -23,10 +23,30 @@ public class Movie implements Serializable {
     private String mTrailerLink;
     private String mImgLink;
 
-    private String mDetailUrl;
 
+    public Boolean getmIsAired() {
+        return mIsAired;
+    }
 
+    public void setmIsAired(Boolean mIsAired) {
+        this.mIsAired = mIsAired;
+    }
 
+    public Boolean getmIshowing() {
+        return mIshowing;
+    }
+
+    public void setmIshowing(Boolean mIshowing) {
+        this.mIshowing = mIshowing;
+    }
+
+    public Boolean getmIsComming() {
+        return mIsComming;
+    }
+
+    public void setmIsComming(Boolean mIsComming) {
+        this.mIsComming = mIsComming;
+    }
 
     private ArrayList<MovieAltID> mMovieAltID;
 
@@ -37,6 +57,17 @@ public class Movie implements Serializable {
     private ArrayList<MovieShowTime> mMovieShowTime;
 
     private ArrayList<MovieHall> mMovieHall;
+
+    private ArrayList<MovieURL> mMovieURL;
+
+
+    public ArrayList<MovieURL> getmMovieURL() {
+        return mMovieURL;
+    }
+
+    public void setmMovieURL(ArrayList<MovieURL> mMovieURL) {
+        this.mMovieURL = mMovieURL;
+    }
 
     public ArrayList<MovieAltID> getmMovieAltID() {
         return mMovieAltID;
@@ -78,23 +109,25 @@ public class Movie implements Serializable {
         this.mMovieHall = mMovieHall;
     }
 
-    public Movie(String name, String description, Boolean isAired, Boolean isShowing , Boolean isComming, String trailerLink , String imageLink, String detailUrl, ArrayList<MovieAltID> movieAltID, ArrayList<MovieHall> movieHall, ArrayList<MovieGenre> movieGenre, ArrayList<MovieDate> movieDate, ArrayList<MovieShowTime> movieShowTime){
+    public Movie(String name, String altName, String description, Boolean isAired, Boolean isShowing , Boolean isComming, String rate, String time, String trailerLink , String imageLink, ArrayList<MovieAltID> movieAltID, ArrayList<MovieHall> movieHall, ArrayList<MovieGenre> movieGenre, ArrayList<MovieDate> movieDate, ArrayList<MovieShowTime> movieShowTime , ArrayList<MovieURL> movieURLs){
 
         mName = name;
+        mAltName = altName;
         mDescription = description;
         mIsAired = isAired;
         mIshowing = isShowing;
         mIsComming = isComming;
         mTrailerLink = trailerLink;
         mImgLink = imageLink;
-        mDetailUrl = detailUrl;
-
+        mRunTime = time;
+        mRating = rate;
 
         mMovieAltID = movieAltID;
         mMovieDate = movieDate;
         mMovieGenre = movieGenre;
         mMovieHall = movieHall;
         mMovieShowTime = movieShowTime;
+        mMovieURL = movieURLs;
     }
 
 
@@ -185,11 +218,4 @@ public class Movie implements Serializable {
         this.mImgLink = mImgLink;
     }
 
-    public String getmDetailUrl() {
-        return mDetailUrl;
-    }
-
-    public void setmDetailUrl(String mDetailUrl) {
-        this.mDetailUrl = mDetailUrl;
-    }
 }

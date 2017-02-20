@@ -12,6 +12,7 @@ import ruppy3e1.merl.Model.MovieDate;
 import ruppy3e1.merl.Model.MovieGenre;
 import ruppy3e1.merl.Model.MovieHall;
 import ruppy3e1.merl.Model.MovieShowTime;
+import ruppy3e1.merl.Model.MovieURL;
 
 /**
  * Created by chunpghing
@@ -45,7 +46,7 @@ public class MovieDataSource {
         movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_IS_COMMING , movie.getComming());
         movieValues.put(MovieSQLiteHelper.COLUMN_MOVIES_TRAILER_LINK , movie.getmTrailerLink());
         movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_IMAGE_LINK , movie.getmImgLink());
-        movieValues.put(MovieSQLiteHelper.COLUMN_MOVIE_DETAIL_URL , movie.getmDetailUrl());
+
 
         long movieID = database.insert(MovieSQLiteHelper.MOVIES_TABLE, null, movieValues);
 
@@ -87,7 +88,6 @@ public class MovieDataSource {
             movieHallValues.put(MovieSQLiteHelper.COLUMN_MOVIE_MAJOR_HALL, movieHall.getMajorHall());
             movieHallValues.put(MovieSQLiteHelper.COLUMN_MOVIE_PLATINUM_HALL, movieHall.getPlatinumHall());
 
-
             database.insert(MovieSQLiteHelper.MOVIE_HALLS_TABLE, null, movieHallValues);
         }
 
@@ -98,8 +98,17 @@ public class MovieDataSource {
             movieDateValues.put(MovieSQLiteHelper.COLUMN_MOVIE_MAJOR_DATE, movieDate.getMajorDate());
             movieDateValues.put(MovieSQLiteHelper.COLUMN_MOVIE_PLATINUM_DATE, movieDate.getPlatinumDate());
 
-
             database.insert(MovieSQLiteHelper.MOVIE_HALLS_TABLE, null, movieDateValues);
+
+        }
+        for (MovieURL movieURL : movie.getmMovieURL()){
+            ContentValues movieURLValues = new ContentValues();
+
+            movieURLValues.put(MovieSQLiteHelper.COLUMN_MOVIE_DETAIL_URL_LEGEND, movieURL.getLegendURL());
+            movieURLValues.put(MovieSQLiteHelper.COLUMN_MOVIE_DETAIL_URL_MAJOR, movieURL.getMajorURL());
+            movieURLValues.put(MovieSQLiteHelper.COLUMN_MOVIE_DETAIL_URL_PLATINUM, movieURL.getLegendURL());
+
+            database.insert(MovieSQLiteHelper.MOVIE_DETAIL_URLS_TABLE,null,movieURLValues);
 
         }
 

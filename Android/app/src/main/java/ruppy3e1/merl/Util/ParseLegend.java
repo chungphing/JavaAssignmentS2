@@ -56,6 +56,12 @@ public class ParseLegend {
 
 
 
+
+
+
+
+
+
     public static ArrayList<String> getMovies(Document doc){
             ArrayList<String> Movies = new ArrayList<>();
 

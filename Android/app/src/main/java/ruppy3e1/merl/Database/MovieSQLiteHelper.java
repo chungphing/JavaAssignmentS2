@@ -22,9 +22,10 @@ public class MovieSQLiteHelper extends SQLiteOpenHelper {
     public static final String MOVIE_SHOWTIMES_TABLE  = "MOVIE_SHOWTIMES";
     public static final String MOVIE_HALLS_TABLE = "MOVIE_HALLS";
     public static final String MOVIE_DATES_TABLE = "MOVIE_DATES";
+    public static final String MOVIE_DETAIL_URLS_TABLE = "MOVIE_DETAIL_URLS";
+
 
     public static final String COLUMN_FOREIGN_KEY_MOVIE ="MOVIE_ID";
-
     public static final String COLUMN_MOVIE_NAME = "NAME";
 
     //could use another table not important
@@ -42,7 +43,6 @@ public class MovieSQLiteHelper extends SQLiteOpenHelper {
 
     public static final String COLUMN_MOVIES_TRAILER_LINK = "TRAILER_LINK";
     public static final String COLUMN_MOVIE_IMAGE_LINK = "IMAGE_LINK";
-    public static final String COLUMN_MOVIE_DETAIL_URL = "DETAIL_URL";
 
     public static final String COLUMN_MOVIE_RUNTIME = "RUNTIME";
     public static final String COLUMN_MOVIE_RATING = "RATING";
@@ -70,6 +70,12 @@ public class MovieSQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_MOVIE_MAJOR_DATE ="MAJOR_DATE";
     public static final String COLUMN_MOVIE_PLATINUM_DATE ="PLATINUM_DATE";
 
+    //column of table detail url
+
+    public static final String COLUMN_MOVIE_DETAIL_URL_LEGEND = "LEGEND_DETAIL_URL";
+    public static final String COLUMN_MOVIE_DETAIL_URL_MAJOR = "MAJOR_DETAIL_URL";
+    public static final String COLUMN_MOVIE_DETAIL_URL_PLATINUM = "PLATINUM_DETAIL_URL";
+
     //QUERY
 
 
@@ -77,7 +83,7 @@ public class MovieSQLiteHelper extends SQLiteOpenHelper {
     //create movie table
     private static final String  CREATE_MOVIES =
             "CREATE TABLE " + MOVIES_TABLE + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_MOVIE_NAME + " TEXT," + COLUMN_MOVIE_ALT_NAME + " TEXT, " + COLUMN_MOVIE_RATING + " TEXT, " + COLUMN_MOVIE_RUNTIME + " TEXT, " +
-                    COLUMN_MOVIE_DESCRIPTION + " TEXT, " + COLUMN_MOVIE_IS_AIRED + " INTEGER, " + COLUMN_MOVIE_IS_SHOWING + " INTEGER, " + COLUMN_MOVIE_IS_COMMING + " INTEGER, " + COLUMN_MOVIES_TRAILER_LINK + " TEXT, " + COLUMN_MOVIE_IMAGE_LINK + " TEXT, " + COLUMN_MOVIE_DETAIL_URL + " TEXT) ";
+                    COLUMN_MOVIE_DESCRIPTION + " TEXT, " + COLUMN_MOVIE_IS_AIRED + " INTEGER, " + COLUMN_MOVIE_IS_SHOWING + " INTEGER, " + COLUMN_MOVIE_IS_COMMING + " INTEGER, " + COLUMN_MOVIES_TRAILER_LINK + " TEXT, " + COLUMN_MOVIE_IMAGE_LINK  + " TEXT) ";
 
 
 
@@ -114,6 +120,13 @@ public class MovieSQLiteHelper extends SQLiteOpenHelper {
 
 
 
+    //create detail url table
+    public static final String CREATE_DETAIL_URLS = "CREATE TABLE " + MOVIE_DETAIL_URLS_TABLE + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_MOVIE_DETAIL_URL_LEGEND + " TEXT, " + COLUMN_MOVIE_DETAIL_URL_MAJOR + " TEXT, " + COLUMN_MOVIE_DETAIL_URL_PLATINUM + " TEXT, " +
+            COLUMN_FOREIGN_KEY_MOVIE + " INTEGER, " +
+            "FOREIGN KEY(" + COLUMN_FOREIGN_KEY_MOVIE + ") REFERENCES MOVIE(_ID))";
+
+
 
 
 
@@ -134,6 +147,7 @@ public class MovieSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_SHOWTIMES);
         db.execSQL(CREATE_HALLS);
         db.execSQL(CREATE_DATES);
+        db.execSQL(CREATE_DETAIL_URLS);
 
     }
 
