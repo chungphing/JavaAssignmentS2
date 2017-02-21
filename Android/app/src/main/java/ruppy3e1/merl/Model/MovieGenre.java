@@ -66,4 +66,38 @@ public class MovieGenre implements Serializable{
     }
 
 
+
+    public static int toCode(String label){
+        switch (label.toUpperCase()){
+            case "ACTION"  :    return ACTION;
+            case "ADVENTURE":   return ADVENTURE;
+            case "ANIMATION" :  return ANIMATION;
+            case "BIOGRAPHY"  : return BIOGRAPHY;
+            case "COMEDY"  :    return COMEDY;
+            case "CRIME"  :     return CRIME;
+            case "DOCUMENTARY": return DOCUMENTARY;
+            case "DRAMA"  :     return DRAMA;
+            case "FAMILY":      return FAMILY;
+            case "FANTASY":     return FANTASY;
+            case "FILM_NOIR":   return FILM_NOIR;
+            case "HISTORY"  :   return HISTORY;
+            case "HORROR"  :    return HORROR;
+            case "MUSIC"  :     return MUSIC;
+            case "MUSICAL" :    return MUSICAL;
+            case "MYSTERY"  :   return MYSTERY;
+            case "ROMANCE"  :   return ROMANCE;
+            case "SCI_FI"  :    return SCI_FI;
+            case "SPORT"  :     return SPORT;
+            case "THRILLER":    return THRILLER;
+            case "WAR"  :       return WAR;
+            case "WESTERN":     return WESTERN;
+            case "ANIME"  :     return ANIME;
+            case "OTHER"  :     return OTHER;
+            default: return 0;
+        }
+
+
+
+    }
+
 }

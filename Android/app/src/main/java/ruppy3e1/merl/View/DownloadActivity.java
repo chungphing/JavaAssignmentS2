@@ -38,6 +38,7 @@ public class DownloadActivity extends AppCompatActivity {
     public static final String PLAT_CINEPLEX_URL = "http://www.platinumcineplex.com.kh/phnom-penh/";
 
     public static final String LEGEND_URL = "https://www.legend.com.kh/Browsing/Movies/NowShowing";
+
     public static final String LEGEND_NOWSHOWING = "https://www.legend.com.kh/Browsing/Movies/NowShowing";
 
     private TextView mTitle;
@@ -58,12 +59,11 @@ public class DownloadActivity extends AppCompatActivity {
 
         dataSource = new MovieDataSource(this);
 
-        for (int i = 0; i < 3; i++){
 
-            new RecieveDataLegend().execute();
-            count++;
+        Log.i(TAG, "onCreate: in download activity");
 
-        }
+        new RecieveDataLegend().execute();
+
 
 
 
@@ -78,19 +78,17 @@ public class DownloadActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
 
             try {
-                doc = null;
-                if (count ==0)
-                {
+               // doc = null;
+
                     doc = Jsoup.connect(LEGEND_URL).get();
-                }
-                if (count == 1){
-                    doc = Jsoup.connect(MAJOR_CINEPLEX_URL).get();
-
-                }
-                if (count == 2){
-                    doc = Jsoup.connect(PLAT_CINEPLEX_URL).get();
-
-                }
+//
+//                    doc = Jsoup.connect(MAJOR_CINEPLEX_URL).get();
+//
+//                }
+//                if (count == 2){
+//                    doc = Jsoup.connect(PLAT_CINEPLEX_URL).get();
+//
+//                }
 
 
             String name = "";
@@ -104,6 +102,7 @@ public class DownloadActivity extends AppCompatActivity {
 
             Boolean isAired = false, isComming = false, isShowing = false;
 
+                Log.i(TAG, "doInBackground: count " + count);
 
             ArrayList<MovieGenre> genre = new ArrayList<>();
             ArrayList<MovieHall> movieHall = new ArrayList<>();
@@ -112,14 +111,59 @@ public class DownloadActivity extends AppCompatActivity {
             ArrayList<MovieAltID> movieAltID = new ArrayList<>();
             ArrayList<MovieURL> movieURLs = new ArrayList<>();
 
+            boolean hasMore =false;
+
+
+            //if (count == 0){
 
 
 
-            if (count == 0){
+
+            Elements list_item = doc.select("#movies-list > div");
 
 
-                boolean hasMore =false;
+            for (Element element : list_item){
+                Log.i(TAG, "doInBackground: im in the elements");
+                //div.item-details > div > div > a
+
+                //div.item-details > div > div > a > h3
+
+                //div.image-outer > a > img
+
+                name = element.select("div.item-details > div > div > a > h3").text();
+                img = element.select("div.image-outer > a > img").attr("src");
+                String legendUrl = element.select("div.item-details > div > div > a").attr("href");
+
+
+                if (!legendUrl.equals("")) hasMore = true;
+
+
+                Document detail = null;
+                try{
+                    detail = Jsoup.connect("https://www.legend.com.kh" + legendUrl).get();
+
+                }catch (IOException e){
+                    e.printStackTrace();
+                    Log.i(TAG, "doInBackground: error");
+                }
+
+                runtime = detail.select("body > div.wrapper > section.content > article > div > div > div.description-box > dl > dd:nth-child(4)").text();
+                rating = detail.select("body > div.wrapper > section.content > article > div > div > div.description-box > dl > dd:nth-child(2)").text();
+                description = detail.select("body > div.wrapper > section.content > article > div > div > div.description-box > p").text();
+                trailer_url = detail.select("#trailer").attr("href");
+
+                hasMore = false;
                 while (hasMore){
+
+
+
+
+                    //body > div.wrapper > section.content > article > div > div > div.description-box > dl > dd:nth-child(2)
+
+                    //body > div.wrapper > section.content > article > div > div > div.description-box > dl > dd:nth-child(4)
+
+
+                    //body > div.wrapper > section.content > article > div > div > div.description-box > dl > dd:nth-child(6)
 
                     MovieAltID mMovieAltID = new MovieAltID();
                     MovieDate mMovieDate = new MovieDate();
@@ -131,7 +175,16 @@ public class DownloadActivity extends AppCompatActivity {
 
 
 
+                    movieURL.setLegendURL(legendUrl);
+
+
+
+                    movieGenre.setmGenreCode(MovieGenre.toCode(detail.select("body > div.wrapper > section.content > article > div > div > div.description-box > dl > dd:nth-child(6)").text()));
+
                     //download data for various table here
+
+
+
 
                     movieAltID.add(mMovieAltID);
                     genre.add(movieGenre);
@@ -141,24 +194,32 @@ public class DownloadActivity extends AppCompatActivity {
                     movieHall.add(mMovieHall);
 
                 }
-            }
-            if (count == 1){
+//            }
+//            if (count == 1){
+//
+//            }
+//            if (count == 2){
+//
+//            }
 
-            }
-            if (count == 2){
-
-            }
 
 
+                Log.i(TAG, "doInBackground: " + "name: " +  name+ " alt name: "+ altName +" description: "+ description+ " rating: " + rating + " image: "+ img +" trailer:  "+ trailer_url);
 
-            Movie movie = new Movie(name, altName, description, isAired, isShowing, isComming,rating , runtime , trailer_url, img, movieAltID, movieHall, genre, movieDate, movieShowTime, movieURLs);
+
+                Movie movie = new Movie(name, altName, description, isAired, isShowing, isComming,rating , runtime , trailer_url, img, movieAltID, movieHall, genre, movieDate, movieShowTime, movieURLs);
             dataSource.create(movie);
+            }
 
 
         } catch (IOException e) {
             e.printStackTrace();
+                Log.i(TAG, "doInBackground: error");
         }
             return null;
+
+
+
         }
 
         @Override
@@ -168,5 +229,7 @@ public class DownloadActivity extends AppCompatActivity {
             super.onPostExecute(aVoid);
         }
     }
+
+
 
 }

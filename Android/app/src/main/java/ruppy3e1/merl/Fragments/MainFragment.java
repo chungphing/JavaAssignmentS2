@@ -63,7 +63,13 @@ public class MainFragment extends Fragment {
                 initDataset();
             }
         }
+        Intent intent = new Intent(getActivity(), DownloadActivity.class);
+        //Bundle bundle = new Bundle();
 
+
+
+        startActivity(intent);
+        getActivity().finish();
 
 
     }
