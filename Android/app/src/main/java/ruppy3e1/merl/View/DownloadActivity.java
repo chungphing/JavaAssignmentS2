@@ -18,6 +18,8 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import ruppy3e1.merl.Database.MovieSQLiteHelper;
+import ruppy3e1.merl.Datasource.MovieDataSource;
 import ruppy3e1.merl.Model.Movie;
 import ruppy3e1.merl.Model.MovieAltID;
 import ruppy3e1.merl.Model.MovieDate;
@@ -44,7 +46,7 @@ public class DownloadActivity extends AppCompatActivity {
     private ArrayAdapter<String> arrayAdapter;
 
     private Document doc;
-
+    private MovieDataSource dataSource;
     private int count = 0;
 
     @Override
@@ -52,6 +54,9 @@ public class DownloadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download);
 
+
+
+        dataSource = new MovieDataSource(this);
 
         for (int i = 0; i < 3; i++){
 
@@ -112,6 +117,30 @@ public class DownloadActivity extends AppCompatActivity {
 
             if (count == 0){
 
+
+                boolean hasMore =false;
+                while (hasMore){
+
+                    MovieAltID mMovieAltID = new MovieAltID();
+                    MovieDate mMovieDate = new MovieDate();
+                    MovieHall mMovieHall = new MovieHall();
+                    MovieShowTime mMovieShowTime = new MovieShowTime();
+                    MovieGenre movieGenre = new MovieGenre();
+                    MovieURL movieURL = new MovieURL();
+
+
+
+
+                    //download data for various table here
+
+                    movieAltID.add(mMovieAltID);
+                    genre.add(movieGenre);
+                    movieDate.add(mMovieDate);
+                    movieShowTime.add(mMovieShowTime);
+                    movieURLs.add(movieURL);
+                    movieHall.add(mMovieHall);
+
+                }
             }
             if (count == 1){
 
@@ -121,17 +150,10 @@ public class DownloadActivity extends AppCompatActivity {
             }
 
 
-            MovieAltID mMovieAltID = new MovieAltID();
-            MovieDate mMovieDate = new MovieDate();
-            MovieHall mMovieHall = new MovieHall();
-            MovieShowTime mMovieShowTime = new MovieShowTime();
-            MovieGenre movieGenre = new MovieGenre();
-            MovieURL movieURL = new MovieURL();
-
-
-
 
             Movie movie = new Movie(name, altName, description, isAired, isShowing, isComming,rating , runtime , trailer_url, img, movieAltID, movieHall, genre, movieDate, movieShowTime, movieURLs);
+            dataSource.create(movie);
+
 
         } catch (IOException e) {
             e.printStackTrace();
