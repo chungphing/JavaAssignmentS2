@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package movietimetable;
+
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
@@ -25,10 +25,12 @@ public class MovieTimeTable extends JFrame{
         tab.addTab("Now Showing",new NowShowing());
         tab.addTab("Coming Soon",new ComingSoon());
         
-        add(tab);
+        add(tab);       
     }
     
     public static void main(String[] args) {
+        MovieTimeTable mv = new MovieTimeTable();
         new MovieTimeTable();
+        mv.tab.setSelectedIndex(0);
     }
 }

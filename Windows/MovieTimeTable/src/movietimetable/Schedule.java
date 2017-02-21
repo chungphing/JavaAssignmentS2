@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package movietimetable;
 
 import java.awt.Image;
 import java.awt.List;
@@ -14,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import static movietimetable.Schedule.main;
+
 
 class Schedule extends JPanel {
 
@@ -39,7 +38,8 @@ class Schedule extends JPanel {
         
         pic=new JLabel();
         pic.setBounds(440,5,210,230); 
-        ImageIcon icon=new ImageIcon("src/img/a.jpg");
+       // ImageIcon icon=new ImageIcon("img/a.jpg");
+        ImageIcon icon = new ImageIcon("http://www.legend.com.kh/CDN/Image/Entity/FilmTitleGraphic/f-0100000876?width=225&amp;height=450");
         Image i=icon.getImage();
         Image ii=i.getScaledInstance(pic.getWidth(), pic.getHeight(), java.awt.Image.SCALE_SMOOTH);
         Icon ic=new ImageIcon(ii);
