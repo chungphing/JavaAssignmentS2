@@ -1,10 +1,16 @@
 package ruppy3e1.merl.Database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import ruppy3e1.merl.Model.Movie;
 
 import static android.content.ContentValues.TAG;
 
@@ -150,6 +156,7 @@ public class MovieSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_DETAIL_URLS);
 
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

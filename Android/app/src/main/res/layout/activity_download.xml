@@ -8,16 +8,39 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimaryDark"
     tools:context="ruppy3e1.merl.View.DownloadActivity">
 
 
+    <ImageView
+        android:layout_width="500px"
+        android:layout_height="500px"
+        android:id="@+id/icon_logo"
+        android:src="@drawable/logo_merl_white"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+    <ProgressBar
+        android:layout_above="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/progess"
+        />
     <TextView
-        android:text="TextView"
+        android:text="Download"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title"
-        android:layout_alignParentTop="true"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:layout_marginBottom="34dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp" />
+        />
 
 </RelativeLayout>

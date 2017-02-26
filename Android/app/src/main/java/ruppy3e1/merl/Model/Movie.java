@@ -8,6 +8,15 @@ import java.util.ArrayList;
  */
 
 public class Movie implements Serializable {
+    public int getmId() {
+        return mId;
+    }
+
+    public void setmId(int mId) {
+        this.mId = mId;
+    }
+
+    private int mId;
 
     private String mName;
     private String mAltName;
@@ -109,7 +118,8 @@ public class Movie implements Serializable {
         this.mMovieHall = mMovieHall;
     }
 
-    public Movie(String name, String altName, String description, Boolean isAired, Boolean isShowing , Boolean isComming, String rate, String time, String trailerLink , String imageLink, ArrayList<MovieAltID> movieAltID, ArrayList<MovieHall> movieHall, ArrayList<MovieGenre> movieGenre, ArrayList<MovieDate> movieDate, ArrayList<MovieShowTime> movieShowTime , ArrayList<MovieURL> movieURLs){
+    public Movie(int id, String name, String altName, String description, Boolean isAired, Boolean isShowing , Boolean isComming, String rate, String time, String trailerLink , String imageLink, ArrayList<MovieAltID> movieAltID, ArrayList<MovieHall> movieHall, ArrayList<MovieGenre> movieGenre, ArrayList<MovieDate> movieDate, ArrayList<MovieShowTime> movieShowTime , ArrayList<MovieURL> movieURLs){
+        mId = id;
 
         mName = name;
         mAltName = altName;
@@ -130,6 +140,27 @@ public class Movie implements Serializable {
         mMovieURL = movieURLs;
     }
 
+    public Movie(int id, String name, String img){
+        mId = id;
+
+        mName = name;
+        mAltName = "";
+        mDescription = "";
+        mIsAired = false;
+        mIshowing = false;
+        mIsComming = false;
+        mTrailerLink = "";
+        mImgLink = img;
+        mRunTime = "";
+        mRating = "";
+
+        mMovieAltID = null;
+        mMovieDate = null;
+        mMovieGenre = null;
+        mMovieHall = null;
+        mMovieShowTime = null;
+        mMovieURL = null;
+    }
 
 
 

@@ -3,6 +3,7 @@
     package="ruppy3e1.merl">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -10,12 +11,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".View.MainActivity"/>
-        <activity android:name=".View.DownloadActivity" />
+        <activity android:name=".View.DownloadActivity"
+            android:theme="@style/custom"/>
+
         <activity
             android:name=".View.Launcher"
-            android:label="@string/title_activity_launcher"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="MERL - មើល"
+            android:theme="@style/custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

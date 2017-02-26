@@ -1,9 +1,13 @@
 package ruppy3e1.merl.View;
 
-import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,31 +18,49 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import ruppy3e1.merl.Fragments.ComingSoonFragment;
 import ruppy3e1.merl.Fragments.MainFragment;
+import ruppy3e1.merl.Fragments.NowShowingFragment;
+import ruppy3e1.merl.Fragments.detailFragment;
+import ruppy3e1.merl.Fragments.schedule;
+import ruppy3e1.merl.Model.Movie;
 import ruppy3e1.merl.R;
 
 public class Launcher extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, MainFragment.OnMovieSelectedInterface, NowShowingFragment.OnMovieSelectedInterface, ComingSoonFragment.OnMovieSelectedInterface, schedule.OnMovieSelectedInterface {
 
     private static final String MAIN_FRAGMENT_TAG = "mainfagment_tag";
+    public static final String SCHEDULE_TAG = "schedule_tag";
+    public static final String NOW_SHOWING_TAG = "now_showing_tag";
+    public static final String COMING_SOON_TAG = "coming_soon";
 
+    public static final String PREFERENCES = "PREFERENCES";
+    public static final String PREF_DATABASE_VERSION = "DATABASE_VERSION";
+    private static final String PREF_STATUS = "STATUS";
+    private static final String TAG = Launcher.class.getSimpleName();
+    private static final String DETAIL_TAG = "detail_tag";
+    private static final String MOVIE_INDEX = "index_movie";
+    private int dbVersion;
+    private boolean status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        checkDatabaseVersion();
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -57,7 +79,8 @@ public class Launcher extends AppCompatActivity
 
         if (savedInstanceState == null) {
             MainFragment mainFragment = new MainFragment();
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.add(R.id.placeholder, mainFragment, MAIN_FRAGMENT_TAG);
             ft.commit();
         }
@@ -74,27 +97,6 @@ public class Launcher extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.launcher, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -102,22 +104,106 @@ public class Launcher extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+//
+//        DictionaryFragment savedFragment = (DictionaryFragment) getSupportFragmentManager().findFragmentByTag(DICTIONARYTAG);
+//        if (savedFragment == null){
+//
+//
+//            DictionaryFragment fragment = DictionaryFragment.newInstanse(word);
+//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//            ft.replace(R.id.placeholder, fragment, DICTIONARYBACKTAG);
+//            ft.commit();
+//
+//
+//        }
 
-        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+        if (id == R.id.all) {
 
-        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+                MainFragment savedFragment = (MainFragment) getSupportFragmentManager().findFragmentByTag(MAIN_FRAGMENT_TAG);
+                if (savedFragment == null){
 
+                    MainFragment fragment = new MainFragment();
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.placeholder, fragment, MAIN_FRAGMENT_TAG);
+                    ft.commit();
+
+
+                }
+        } else if (id == R.id.now_showing) {
+            NowShowingFragment savedFragment = (NowShowingFragment) getSupportFragmentManager().findFragmentByTag(NOW_SHOWING_TAG);
+            if (savedFragment == null){
+
+                NowShowingFragment fragment = new NowShowingFragment();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.placeholder, fragment, NOW_SHOWING_TAG);
+                ft.commit();
+
+
+            }
+        } else if (id == R.id.coming_soon) {
+            ComingSoonFragment savedFragment = (ComingSoonFragment) getSupportFragmentManager().findFragmentByTag(COMING_SOON_TAG);
+            if (savedFragment == null){
+
+                ComingSoonFragment fragment = new ComingSoonFragment();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.placeholder, fragment, COMING_SOON_TAG);
+                ft.commit();
+
+
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+      private void checkDatabaseVersion() {
+        String timeStamp = new SimpleDateFormat("dd").format(Calendar.getInstance().getTime());
+        SharedPreferences pref = this.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
+
+
+        if (Integer.parseInt(timeStamp) > pref.getInt(PREF_DATABASE_VERSION, 0)){
+
+            this.deleteDatabase("movies.db");
+            Intent intent = new Intent(this, DownloadActivity.class);
+            //Bundle bundle = new Bundle();
+
+
+            Log.i(TAG, "checkDatabaseVersion: finished. try to open fragment");
+            startActivity(intent);
+            finish();
+        }else {
+            Log.i(TAG, "checkDatabaseVersion: database already exist lauching mainfragment");
+        }
+
+
+
+
+    }
+
+    @Override
+    public void onListMovieSelected(int index) {
+        detailFragment savedFragment = (detailFragment) getSupportFragmentManager().findFragmentByTag(DETAIL_TAG);
+        if (savedFragment == null){
+
+            Bundle bundle = new Bundle();
+            bundle.putInt(MOVIE_INDEX, index);
+            detailFragment fragment = new detailFragment();
+
+            fragment.setArguments(bundle);
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+            ft.addToBackStack(null);
+            ft.replace(R.id.placeholder, fragment, DETAIL_TAG);
+            ft.commit();
+
+
+        }
+
+
     }
 }
