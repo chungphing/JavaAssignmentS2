@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="2c04219521adcb243a6ff5935562f29edef139ba">
+        sha1="f0a31022a280f309b16c4fa02671210e7546526f">
         <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_82ada4a1ef199904b4133d6ae014d7c810babbb3/classes.dex" />
     </item>
     <item
@@ -142,7 +142,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="3e815cfb109c6407924e583aa874925b4c78ae54">
+        sha1="9c9a87adb8f9b570f8676215759daf6f1e12204f">
         <dex dex="/Users/chungphing/JavaAssignmentS2/Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_da72417a1b0711a4c1099782d0c839efb4ea1820/classes.dex" />
     </item>
     <item

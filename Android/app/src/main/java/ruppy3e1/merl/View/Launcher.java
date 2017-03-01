@@ -119,8 +119,6 @@ public class Launcher extends AppCompatActivity
 
 
         if (id == R.id.all) {
-
-
                 MainFragment savedFragment = (MainFragment) getSupportFragmentManager().findFragmentByTag(MAIN_FRAGMENT_TAG);
                 if (savedFragment == null){
 
@@ -164,15 +162,13 @@ public class Launcher extends AppCompatActivity
       private void checkDatabaseVersion() {
         String timeStamp = new SimpleDateFormat("dd").format(Calendar.getInstance().getTime());
         SharedPreferences pref = this.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
-
-
-        if (Integer.parseInt(timeStamp) > pref.getInt(PREF_DATABASE_VERSION, 0)){
-
+        int time = Integer.parseInt(timeStamp);
+          Log.i(TAG, "checkDatabaseVersion: ");
+          int savedTime = pref.getInt(PREF_DATABASE_VERSION, 0);
+        if (time > savedTime){
             this.deleteDatabase("movies.db");
             Intent intent = new Intent(this, DownloadActivity.class);
             //Bundle bundle = new Bundle();
-
-
             Log.i(TAG, "checkDatabaseVersion: finished. try to open fragment");
             startActivity(intent);
             finish();
