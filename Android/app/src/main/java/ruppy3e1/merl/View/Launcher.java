@@ -163,9 +163,10 @@ public class Launcher extends AppCompatActivity
         String timeStamp = new SimpleDateFormat("dd").format(Calendar.getInstance().getTime());
         SharedPreferences pref = this.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
         int time = Integer.parseInt(timeStamp);
-          Log.i(TAG, "checkDatabaseVersion: ");
-          int savedTime = pref.getInt(PREF_DATABASE_VERSION, 0);
-        if (time > savedTime){
+      int savedTime = pref.getInt(PREF_DATABASE_VERSION, 0);
+
+          Log.i(TAG, "checkDatabaseVersion: current time " + time + " and save time " + savedTime);
+        if (time != savedTime){
             this.deleteDatabase("movies.db");
             Intent intent = new Intent(this, DownloadActivity.class);
             //Bundle bundle = new Bundle();
@@ -183,23 +184,28 @@ public class Launcher extends AppCompatActivity
 
     @Override
     public void onListMovieSelected(int index) {
-        detailFragment savedFragment = (detailFragment) getSupportFragmentManager().findFragmentByTag(DETAIL_TAG);
-        if (savedFragment == null){
+//        detailFragment savedFragment = (detailFragment) getSupportFragmentManager().findFragmentByTag(DETAIL_TAG);
+//        if (savedFragment == null){
+//
+//            Bundle bundle = new Bundle();
+//            bundle.putInt(MOVIE_INDEX, index);
+//            detailFragment fragment = new detailFragment();
+//
+//            fragment.setArguments(bundle);
+//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//
+//            ft.addToBackStack(null);
+//            ft.replace(R.id.placeholder, fragment, DETAIL_TAG);
+//            ft.commit();
+//
+//
+//        }
 
-            Bundle bundle = new Bundle();
-            bundle.putInt(MOVIE_INDEX, index);
-            detailFragment fragment = new detailFragment();
 
-            fragment.setArguments(bundle);
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        Intent intent = new Intent(Launcher.this, DetailActivity.class);
+        intent.putExtra(MOVIE_INDEX, index);
 
-            ft.addToBackStack(null);
-            ft.replace(R.id.placeholder, fragment, DETAIL_TAG);
-            ft.commit();
-
-
-        }
-
+        startActivity(intent);
 
     }
 }
